@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h1>Inserte su imagen</h1>
+</head>
+<body>
+<form action="{% url  'subir' %}" method="post"  enctype="multipart/form-data">
+
+       {% csrf_token   %}
+
+    <input type="file" name="imagens" required/>
+
+    <button type="submit">subalo</button>
+</form>
+</body>
+
+</html>
