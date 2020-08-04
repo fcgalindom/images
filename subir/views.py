@@ -9,7 +9,7 @@ def imagenes(request):
 
         darImagen = request.FILES['imagens']
 
-        memeResultado = logica.logica(darImagen)
+        logica.logica(darImagen)
 
 
 

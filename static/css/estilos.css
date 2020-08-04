@@ -1,0 +1,26 @@
+html,
+body {
+    background: gray;
+}
+
+.container {
+    background: white;
+    display: block;
+    width: 300px;
+}
+
+input {
+    width: 300px;
+}
+
+.form-control {
+    width: 300px;
+}
+
+button {
+    width: 500px;
+}
+
+h1 {
+    color: brown;
+}
