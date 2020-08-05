@@ -2,24 +2,55 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Imagen memes</title>
 
 
 
     <link  rel="stylesheet" href="/static/css/estilos.css">
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script>
+        document.forms.demo.radiosB.forEach(radio => {
+             radio.addEventListener('change', () => {
+             alert('${document.forms.demo.radiosB.value} Thai Gayo');
+                })
+          });
+
+
+    </script>
 </head>
+
 <body>
 
 <div class="container"  align="center">
 
 
- <h1>Inserte su images</h1>
+ <h1>Inserte su imagenen</h1>
 <form class="form-group" action="{% url  'subir' %}" method="post"  enctype="multipart/form-data">
 
        {% csrf_token   %}
 
+
+      <label>
+          Meme solo  con  imagen
+
+          <input class="form-check-input" name="radiosB" type="radio" onclick="textoMeme.disabled = true" checked/>
+            </label>
+    <br/>
+       <label>
+         Meme con texto y imagen
+       <input class="form-check-input" name="radiosB" onclick="textoMeme.disabled = false " type="radio"/>
+           </label>
+    <br/>
+
     <input  class="form-control" type="file" name="imagens" required/>
+
+
+
+    <br/>
+    <input class= "form-control" name="textoMeme" disabled ="disabled"  type="text" maxlength="25" />
+    <br/>
 
     <button class="btn btn-primary"  type="submit">SUBIR IMAGENES</button>
 </form>

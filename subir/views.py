@@ -19,6 +19,8 @@ def imagenes(request):
     return render(request, "imagenes.html")
 def memes (request):
     return render(request,"memes.html")
+def index (request):
+    render(request, "memes.html")
 
 
 

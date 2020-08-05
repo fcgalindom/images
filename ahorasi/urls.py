@@ -5,6 +5,8 @@ from subir import  views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('imagenes/',views.imagenes ,name = 'subir'),
-    path('memes/',views.memes, name = 'meme')
+    path('',views.imagenes ,name = 'subir'),
+
+    path('memes/',views.memes, name = 'meme'),
+
 ]

@@ -11,6 +11,7 @@ body {
 
 input {
     width: 300px;
+    font-family: "Times New Roman";
 }
 
 .form-control {
@@ -23,4 +24,8 @@ button {
 
 h1 {
     color: brown;
+   font-family: "Times New Roman";
+}
+label{
+ font-family: "Times New Roman";
 }
