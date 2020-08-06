@@ -7,6 +7,7 @@
 
 
     <link  rel="stylesheet" href="/static/css/estilos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -35,7 +36,7 @@
       <label>
           Meme solo  con  imagen
 
-          <input class="form-check-input" name="radiosB" type="radio" onclick="textoMeme.disabled = true" checked/>
+          <input  class="form-check-input" name="radiosB" type="radio" onclick="textoMeme.disabled = true" checked/>
             </label>
     <br/>
        <label>
@@ -44,7 +45,7 @@
            </label>
     <br/>
 
-    <input  class="form-control" type="file" name="imagens" required/>
+    <input id="validarImagen" class="form-control" type="file" name="imagens" required onchange="return validacionImagen()"/>
 
 
 
@@ -60,3 +61,15 @@
 
 
 </html>
+<script type="text/javascript">
+    function validacionImagen() {
+        var validarImagen = document.getElementById('validarImagen');
+        var Ruta = validarImagen.value;
+        var archivosP = /(.pdf|.jpg|.txt)$/i;
+        if (!archivosP.exec(Ruta)) {
+            alert('Asegurese que su archivo sea una imagen y tenga extencion JPG , JPEG o PNG');
+            validarImagen.value = '';
+            return false;
+        }
+    }
+</script>
