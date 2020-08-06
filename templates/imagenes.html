@@ -65,7 +65,7 @@
     function validacionImagen() {
         var validarImagen = document.getElementById('validarImagen');
         var Ruta = validarImagen.value;
-        var archivosP = /(.pdf|.jpg|.txt)$/i;
+        var archivosP = /(.png|.jpg)$/i;
         if (!archivosP.exec(Ruta)) {
             alert('Asegurese que su archivo sea una imagen y tenga extencion JPG , JPEG o PNG');
             validarImagen.value = '';
