@@ -16,19 +16,37 @@
         <div class="col-sm-4 bg-blue">
     <h1>  Imagen original  </h1>
     <a href="/static/imagenes/salida.jpg" download>
-   <img src="/static/imagenes/salida.jpg">
+   <img src="/static/imagenes/salida.jpg"   class="img-fluid">
     </a>
             {% if textoMeme %}
                <h1> Aqui es tu meme   </h1>
 
 
 
-               <img src="/static/imagenes/salida2.jpg">
+               <img src="/static/imagenes/textoImagen.jpg" class="img-fluid">
             {% endif %}
             {%  if cambiarAlto and cambiarAncho %}
                 <h1> Aqui es tu meme con cambio de imagen   </h1>
-                <img src="/static/imagenes/tamaño.jpg">
+                <img src="/static/imagenes/tamaño.jpg" class="img-fluid">
             {% endif %}
+            {% if checkBN  %}
+               <h1> Aqui esta tu imagen blanco y negro  </h1>
+                <img src="/static/imagenes/imagenBN.jpg" class="img-fluid">
+
+
+
+            {% endif %}
+            {% if checkPixel %}
+                <h1> Aqui esta tu imagen pixeleada  </h1>
+                <img src="/static/imagenes/pixelImagen.jpg" class="img-fluid">
+
+            {% endif %}
+            {% if rotarI  %}
+                <h1> Aqui esta con Rotacion </h1>
+                <img src="/static/imagenes/rotarI.jpg" class="img-fluid">
+
+            {% endif %}
+
 
 
 

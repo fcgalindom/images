@@ -18,35 +18,62 @@
 
 <body>
 
-<div class="container"  align="center">
+<div class="container">
 
 
  <h1>Inserte su imagenen</h1>
-<form  name="formulariImagen" class="form-group" action="{% url  'subir' %}" method="post"  enctype="multipart/form-data">
+<form  name="formulariImagen"  action="{% url  'subir' %}" method="post"  enctype="multipart/form-data">
 
        {% csrf_token   %}
 
 
-      <label>
-          Meme solo  con  imagen
+    <div class=" form-check " >
+
+        <ul>
 
 
-           <input class="form-check-input" type="checkbox"  checked disabled>
-            </label>
-    <br/>
-       <label>
-         Meme con texto y imagen
-       <input class="form-check-input" name="checkTexto" id="checkboxMensaje"  onclick="alertaChecked() "type="checkbox"/>
+        <li>
+
+        <input class="form-check-input" type="checkbox"  checked disabled id="memeImagen">
+             <label form-check-label for="memeImagen">Meme solo  con  imagen
+         </label>
+            </li>
+
+
+
+       <li>
+
+
+        <input class="form-check-input" name="checkTexto" id="checkboxMensaje"  onclick="alertaChecked() "type="checkbox"/>
+            <label for="checkboxMensaje" form-check-label>Meme con texto y imagen
            </label>
-    <br/>
+       </li>
 
-    <label>
-        Cambiar tamaño de la imagen
-       <input class="form-chceck-input" name="ceckTamaño" id="checkboxTamaño" onclick="alterarTexto()" type="checkbox"/>
+      <li>
+    <input class="form-chceck-input" name="ceckTamaño" id="checkboxTamaño" onclick="alterarTexto()" type="checkbox"/>
+          <label for="checkboxTamaño"  form-check-label>Cambiar tamaño
+        </label>
+      </li>
+            <li>
+                <input class="form-chceck-input" name="checkBN" id="imagenBN" type="checkbox">
+                <label for="imagenBN" form-check-label >Imagen Blanco y Negro</label>
+            </li>
+            <li>
+                <input class="form-chceck-input" name="checkPixel" id="pixel" type="checkbox" >
+                <label for="pixel"  form-check-label>Imagen pixeliada</label>
 
-    </label>
+            </li>
+            <li>
+                <input class="form-chceck-input" name="checkRotacion" id="rotacion" type="checkbox" onclick="rotarImagen()">
+                <label for="rotacion" form-check-label>Rotar Imagen</label>
 
-    <br/>
+            </li>
+        </ul>
+    </div>
+
+
+
+
 
 
     <input id="validarImagen" class="form-control" type="file" name="imagens" required onchange="return validacionImagen()"/>
@@ -54,15 +81,17 @@
 
 
     <br/>
-    <h3>Texto</h3>
-    <input class= "form-control" name="textoMeme" disabled  type="text" maxlength="25" />
+    <label>Texto</label>
+    <input class= "form-control" name="textoMeme" disabled  type="text" maxlength="25"  />
     <br/>
-    <h3>Tamaño de la letra</h3>
+    <label>Tamaño de la letra</label>
     <input class="form-control" disabled name="numeroMeme"  type="number" max="100" placeholder="">
-    <h3> Alto</h3>
+    <label> Alto</label>
     <input class="form-control" disabled name="cambiarAlto" type="number" min="10" max="200">
-    <h3>Ancho</h3>
+    <label>Ancho</label>
     <input class="form-control" disabled name="cambiarAncho" type="number" min="10" max="200">
+     <label>Rotacion de la imagen</label>
+    <input class="form-control" disabled name="rotarI" type="number" min="0" max="360">
 
     <button class="btn btn-primary"  type="submit">SUBIR IMAGENES</button>
 </form>

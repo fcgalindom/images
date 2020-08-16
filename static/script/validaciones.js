@@ -35,6 +35,23 @@ function alterarTexto(){
         document.formulariImagen.cambiarAlto.disabled = true;
         document.formulariImagen.cambiarAncho.disabled = true;
    	}
+   }
+
+function rotarImagen(){
+    console.log("entro")
+	var  habilitar =  document.formulariImagen.checkRotacion.checked
+		if (habilitar == true){
+         document.formulariImagen.rotarI.disabled = false;
+
+
+   	}
+   	else{
+        document.formulariImagen.rotarI.disabled = true;
+
+   	}
+
+
+
 
 
 

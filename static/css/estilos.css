@@ -5,18 +5,16 @@ body {
 
 .container {
     background: white;
-    display: block;
-    width: 300px;
+
+
 }
 
 input {
-    width: 300px;
+
     font-family: "Times New Roman";
 }
 
-.form-control {
-    width: 300px;
-}
+
 
 button {
     width: 500px;
@@ -28,6 +26,7 @@ h1 {
 }
 label{
  font-family: "Times New Roman";
+
 }
 h3{
   font-family: "Times New Roman";

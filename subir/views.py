@@ -14,6 +14,12 @@ def imagenes(request):
         ImageManipulator.predeterminada(darImagen)
 
         textoMeme = None
+        cambiarAlto = None
+        cambiarAncho = None
+        checkBN = None
+        checkPixel = None
+        rotarI = None
+
         if'checkTexto' in  request.POST :
              textoMeme = request.POST['textoMeme']
              textoNumero = request.POST['numeroMeme']
@@ -26,7 +32,19 @@ def imagenes(request):
             cambiarAncho = int (cambiarAncho)
             cambiarAlto = int (cambiarAlto)
             ImageManipulator.change_size(darImagen,cambiarAncho,cambiarAlto)
+        if 'checkBN' in request.POST :
+            checkBN = True
 
+            ImageManipulator.turn_to_monochrome(darImagen)
+        if 'checkPixel' in request.POST :
+            checkPixel = True
+            ImageManipulator.create_pixelArt(darImagen)
+        if 'checkRotacion' in request.POST:
+            rotarI = request.POST['rotarI']
+            rotarI = int(rotarI)
+            ImageManipulator.turn_image(darImagen,'L',rotarI)
+
+        print(checkPixel)
 
 
 
@@ -37,7 +55,8 @@ def imagenes(request):
 
 
         return render(request, "memes.html",{'textoMeme': textoMeme ,
-        'cambiarAlto': cambiarAlto , 'cambiarAncho' : cambiarAncho
+             'cambiarAlto': cambiarAlto , 'cambiarAncho' : cambiarAncho , 'checkBN' : checkBN,
+              'checkPixel' : checkPixel, 'rotarI' : rotarI
                                              })
     return render(request, "imagenes.html")
 def memes (request):

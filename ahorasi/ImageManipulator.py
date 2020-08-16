@@ -1,6 +1,6 @@
 from PIL import Image
 from PIL import ImageFont
-from PIL import ImageDraw
+from PIL import ImageDraw 
 from PIL import ImageFont
 from os import listdir, path
 import imghdr
@@ -20,6 +20,8 @@ def add_text(image_path, phrase, size):
 		draw.text((width * 0.1, height * 0.1), phrase, fill='black', font=f, anchor=None)
 
 		im.save("static/imagenes/salida2.jpg")
+
+
 
 
 def change_size(input_path, width, height):
@@ -46,4 +48,64 @@ def change_size(input_path, width, height):
 
 
 
+	
+def turn_to_monochrome(original_image):
+	'''
+	Turns a picture into one in black and white.
+	:param original_image: original
+	:return: monochromatic image
+	'''
+	img = Image.open(original_image)
+
+	imagen2 = img.convert("L")
+
+
+	imagen2.save("static/imagenes/imagenBN.jpg")
+	
+def turn_image(original_image, side, degrees):
+	'''
+	Turns a picture to the right side x degree.
+	:param original_image: path
+	:return: none
+	'''
+	image1 = Image.open(original_image)
+
+
+	output_path = 'static/imagenes/rotarI.jpg'
+	if(side == 'L'):
+		image1.rotate(degrees).save(output_path)
+	elif(side == 'R'):
+		image1.rotate(-degrees).save(output_path)
+	else:
+		image1.save(output_path)
+	
+def add_text(original_image, phrase, size):
+    '''
+    Adds text to an image
+    original_image: original image path.
+    phrase: text in the image.
+    size: size of the text.
+    '''
+    im = Image.open(original_image)
+		
+    f = ImageFont.truetype("fonts/HelveticaNeue Medium.ttf", size)		
+    draw = ImageDraw.Draw(im)		
+    width, height = im.size		
+    draw.text((width*0.1, height*0.1), phrase, fill = 'grey', font = f, anchor = None)				
+ 
+   
+    
+    im.save("static/imagenes/textoImagen.jpg")
+	
+def create_pixelArt(original_image):
+	'''
+	Creates a pixelArt version of the picture.
+	original_image: path of original image.
+	'''
+	im = Image.open(original_image)
+	aux_image = im.resize((32,32), Image.BILINEAR)
+	output_image = aux_image.resize(im.size, Image.NEAREST)
+
+
+	output_image.save('static/imagenes/pixelImagen.jpg')
 
